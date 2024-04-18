@@ -4,3 +4,6 @@ main: cx.leo.announcer.AnnouncerPlugin
 description: "${description}"
 authors: [ItsSimplyLeo]
 api-version: "${apiVersion}"
+
+commands:
+  announcer-test:

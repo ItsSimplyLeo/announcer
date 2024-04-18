@@ -1,5 +1,6 @@
 package cx.leo.announcer;
 
+import cx.leo.announcer.commands.AnnouncerTestCmd;
 import cx.leo.announcer.file.FileManager;
 import cx.leo.announcer.objects.AnnouncementManager;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -17,6 +18,8 @@ public class AnnouncerPlugin extends JavaPlugin {
         this.fileManager.register("config");
 
         this.announcementManager = new AnnouncementManager(this);
+
+        this.getCommand("announcer-test").setExecutor(new AnnouncerTestCmd(this));
     }
 
     @Override

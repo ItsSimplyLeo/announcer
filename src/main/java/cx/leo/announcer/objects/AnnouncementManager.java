@@ -77,6 +77,10 @@ public class AnnouncementManager {
         return new Announcement(id, lines, actionBar, titleAnnouncement);
     }
 
+    public List<Announcement> getAnnouncements() {
+        return announcements;
+    }
+
     public int getCurrentIndex() {
         return currentIndex;
     }
