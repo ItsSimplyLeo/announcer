@@ -19,9 +19,14 @@ public class AnnouncerTestCmd implements CommandExecutor {
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (args.length < 1) return true;
 
-        String targetAnnouncement = args[0];
+        String arg1 = args[0];
 
-        Announcement announcement = plugin.getAnnouncementManager().getAnnouncements().stream().filter(a -> a.getId().equalsIgnoreCase(targetAnnouncement))
+        if (arg1.equalsIgnoreCase("reload")) {
+            plugin.reloadConfig();
+            plugin.getAnnouncementManager().reload();
+        }
+
+        Announcement announcement = plugin.getAnnouncementManager().getAnnouncements().stream().filter(a -> a.getId().equalsIgnoreCase(arg1))
                 .findAny().orElse(null);
 
         if (announcement == null) return true;
