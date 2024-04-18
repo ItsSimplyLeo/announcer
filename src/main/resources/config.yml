@@ -8,9 +8,9 @@ announcements:
     chat:
       - ''
       - ' <aqua><b>Hello</b></aqua> <dark_gray>|</dark_gray> <white>Server Information'
-      - ' <dark_gray><b>></b></dark_gray> <gray>Be sure to check-out our store <aqua><underline>store.leo.cx</underline></aqua>!'
+      - ' <dark_gray><b>></b></dark_gray> <gray>Be sure to check-out our store <aqua><u>store.leo.cx</u></aqua>!'
       - ''
-    action-bar: '<dark_aqua>[<aqua><b>Announcement</b></aqua>]</dark_aqua> <gray>Be sure to check-out our store <aqua><underline>store.leo.cx</underline></aqua>!'
+    action-bar: '<dark_aqua>[<aqua><b>Announcement</b></aqua>]</dark_aqua> <gray>Be sure to check-out our store <aqua><u>store.leo.cx</u></aqua>!'
     title:
       header: '<aqua><b>ANNOUNCEMENT</b></aqua>'
       subtitle: '<gray>Be sure to check-out our store <aqua><underline>store.leo.cx</underline></aqua>!'

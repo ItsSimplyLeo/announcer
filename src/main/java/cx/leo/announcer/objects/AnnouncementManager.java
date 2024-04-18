@@ -91,7 +91,7 @@ public class AnnouncementManager {
 
     public Announcement getNextAnnouncement(boolean increment) {
         int returnIndex = currentIndex;
-        if (currentIndex >= announcements.size() || currentIndex < 0){
+        if (currentIndex + 1 >= announcements.size() || currentIndex < 0){
             // Reset the index back to 0
             returnIndex = 0;
         } else {
