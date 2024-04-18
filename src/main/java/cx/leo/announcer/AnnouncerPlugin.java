@@ -1,11 +1,13 @@
 package cx.leo.announcer;
 
-import cx.leo.announcer.commands.AnnouncerTestCmd;
+import cx.leo.announcer.commands.AnnouncerCommand;
 import cx.leo.announcer.file.FileManager;
 import cx.leo.announcer.objects.AnnouncementManager;
+import org.bukkit.command.PluginCommand;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 public class AnnouncerPlugin extends JavaPlugin {
 
@@ -19,7 +21,13 @@ public class AnnouncerPlugin extends JavaPlugin {
 
         this.announcementManager = new AnnouncementManager(this);
 
-        this.getCommand("announcer-test").setExecutor(new AnnouncerTestCmd(this));
+        AnnouncerCommand announcerCommand = new AnnouncerCommand(this);
+        @Nullable PluginCommand command = getCommand("announcer");
+
+        if (command == null) return;
+
+        command.setExecutor(announcerCommand);
+        command.setTabCompleter(announcerCommand);
     }
 
     @Override

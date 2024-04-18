@@ -6,4 +6,6 @@ authors: [ItsSimplyLeo]
 api-version: "${apiVersion}"
 
 commands:
-  announcer-test:
+  announcer:
+    description: "Main command to handle the announcer plugin"
+    permission: "announcer.command.main"
