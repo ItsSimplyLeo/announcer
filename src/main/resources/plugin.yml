@@ -1,0 +1,6 @@
+name: announcer
+version: "${pluginVersion}"
+main: cx.leo.announcer.AnnouncerPlugin
+description: "${description}"
+authors: [ItsSimplyLeo]
+api-version: "${apiVersion}"
