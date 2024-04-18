@@ -18,8 +18,8 @@ public class AnnouncementManager {
 
     private final AnnouncerPlugin plugin;
     private final List<Announcement> announcements;
-    private final long delay = 100L; // Delay to start announcements after task.
-    private final long period = 120; // Period in seconds to send announcements
+    private long delay = 100L; // Delay to start announcements after task.
+    private long period = 300; // Period in seconds to send announcements
 
     private BukkitTask announcerTask = null;
     private int currentIndex = 0;
@@ -35,6 +35,13 @@ public class AnnouncementManager {
         if (announcerTask != null) this.announcerTask.cancel();
 
         FileConfiguration config = plugin.getConfig();
+
+        ConfigurationSection settingsSection = config.getConfigurationSection("settings");
+        if (settingsSection != null) {
+            this.delay = 20L * settingsSection.getLong("delay", 10);
+            this.period = 20L * settingsSection.getLong("delay", 300);
+        }
+
         ConfigurationSection announcementSection = config.getConfigurationSection("announcements");
         if (announcementSection == null) {
             plugin.getLogger().warning("Could not load \"announcements\" ConfigurationSection, please check the config.");

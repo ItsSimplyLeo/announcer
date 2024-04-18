@@ -1,7 +1,7 @@
 settings:
   min-players: 1 # Minimum amount of players to send a broadcast
   delay: 10 # Delay in seconds to start announcement after a reload
-  period: 120 # Period in seconds to send announcements to players
+  period: 300 # Period in seconds to send announcements to players
 
 announcements:
   '1':
