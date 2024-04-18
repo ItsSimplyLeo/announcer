@@ -60,7 +60,7 @@ tasks {
     }
 
     shadowJar {
-        fun relocate1(pkg: String) = relocate(pkg, "${project.group}.lib.$pkg")
+        fun relocatePkg(pkg: String) = relocate(pkg, "${project.group}.lib.$pkg")
     }
 
     build {
