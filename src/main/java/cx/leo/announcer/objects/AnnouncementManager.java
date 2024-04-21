@@ -56,7 +56,7 @@ public class AnnouncementManager {
             }
             this.announcements.add(loadAnnouncement(currentSection));
         }
-
+        this.currentIndex = 0;
         this.announcerTask = new AnnouncerTask(plugin).runTaskTimer(plugin, delay, 20L * period);
     }
 
