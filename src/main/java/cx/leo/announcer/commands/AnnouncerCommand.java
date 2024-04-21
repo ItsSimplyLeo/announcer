@@ -2,6 +2,8 @@ package cx.leo.announcer.commands;
 
 import cx.leo.announcer.AnnouncerPlugin;
 import cx.leo.announcer.objects.Announcement;
+import net.kyori.adventure.text.minimessage.MiniMessage;
+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -19,6 +21,8 @@ import java.util.List;
  */
 public class AnnouncerCommand implements CommandExecutor, TabExecutor {
 
+    private static final MiniMessage MINIMESSAGE = MiniMessage.miniMessage();
+
     private final AnnouncerPlugin plugin;
     private final List<String> subcommands = List.of("reload", "test");
 
@@ -28,13 +32,20 @@ public class AnnouncerCommand implements CommandExecutor, TabExecutor {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-        if (args.length < 1) return true;
+        if (args.length < 1) {
+            sender.sendMessage(MINIMESSAGE.deserialize(
+                    "<aqua>Currently running <white><plugin></white> version <white>v<version></white>.",
+                    Placeholder.parsed("plugin", plugin.getName()), Placeholder.parsed("version", plugin.getPluginMeta().getVersion())
+            ));
+            return true;
+        }
 
         String arg1 = args[0];
 
         if (arg1.equalsIgnoreCase("reload")) {
             plugin.reloadConfig();
             plugin.getAnnouncementManager().reload();
+            sender.sendMessage(MINIMESSAGE.deserialize("<green>announcer has been reloaded."));
             return true;
         }
 
